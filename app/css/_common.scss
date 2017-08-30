@@ -1,0 +1,11 @@
+body {
+    padding: 0.3em;
+    background-color: $color-main-darkest;
+    background-image: url("/assets/dev/images/background-star.png");
+    background-repeat: repeat;
+}
+
+.common-content-block {
+    background-color: $color-main-light;
+    color: $color-main-accent;
+}
