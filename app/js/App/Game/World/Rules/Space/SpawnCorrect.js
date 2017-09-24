@@ -5,7 +5,7 @@ import BaseRule from './../BaseRule';
 import Phaser from 'phaser';
 import Asteroids from './../../Objects/Asteroids/Asteroids';
 import Giants from './../../Objects/Giants';
-import Portal from './../../Objects/Portal'
+import Portal from './../../Objects/Portal';
 
 export default class SpawnCorrect extends BaseRule {
 

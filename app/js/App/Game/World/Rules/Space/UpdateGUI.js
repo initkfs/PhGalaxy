@@ -10,8 +10,8 @@ export default class UpdateGUI extends BaseRule {
     constructor(appServices, game, gameServices, ruleData) {
         super(appServices, game, gameServices, ruleData);
 
-        this._ship;
-        this._reactor;
+        this._ship = null;
+        this._reactor = null;
     }
 
     run() {

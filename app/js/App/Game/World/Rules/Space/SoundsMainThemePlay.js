@@ -17,7 +17,7 @@ export default class SoundsMainThemePlay extends BaseRule {
     load() {
         this._themesFiles.forEach((soundName) => {
             this.gameServices.soundManager.loadMusic(soundName);
-        })
+        });
     }
 
     run() {
@@ -26,7 +26,7 @@ export default class SoundsMainThemePlay extends BaseRule {
 
             let audio = this.gameServices.soundManager.addSound(soundName);
             audio.onStop.add(() => {
-                this.playRandomMainTheme()
+                this.playRandomMainTheme();
             });
         });
 

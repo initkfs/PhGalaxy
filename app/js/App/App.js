@@ -18,15 +18,15 @@ import AssetManager from './Game/Services/AssetManager';
 import GameManager from './Game/Services/GameManager';
 import EffectsManager from './Game/Services/EffectsManager';
 import GameHelper from './Game/Services/GameHelper';
-import GameService from './Game/Services/GameManager';
+import GameService from './Game/Services/GameService';
 
 export default class AppGame {
 
   constructor() {
     this.config = new AppMainConfig();
-    this.appServices;
-    this.game;
-    this.gameServices;
+    this.appServices = null;
+    this.game = null;
+    this.gameServices = null;
   }
 
   run() {
@@ -68,7 +68,7 @@ export default class AppGame {
 
     const instance = new clazz(this.appServices, this.game, this.gameServices);
 
-    if (!instance instanceof GameService) {
+    if (!(instance instanceof GameService)) {
       throw new TypeError(`Invalid service instance, expected instanceof ${GameService.name}`);
     }
 

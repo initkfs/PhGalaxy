@@ -36,7 +36,7 @@ export default class GameManager extends GameService {
             }
         });
 
-        this.appServices.logger.debug(`Clear effects cache, count now: ${this._effectsCache.length}`)
+        this.appServices.logger.debug(`Clear effects cache, count now: ${this._effectsCache.length}`);
     }
 
     withSpriteEffect(sprite, effectSpriteID, effectSoundID, frameRate = 30) {
@@ -52,7 +52,7 @@ export default class GameManager extends GameService {
         const anim = effect.animations.add('run');
         anim.onComplete.add(() => {
             this._cleanCacheEffects();
-        })
+        });
 
         effect.animations.play('run', frameRate, false);
 
@@ -99,7 +99,7 @@ export default class GameManager extends GameService {
     destroy() {
         this._effectsCache.forEach(spriteEffect => {
             spriteEffect.destroy();
-        })
+        });
         this._effectsCache = [];
 
         super.destroy();

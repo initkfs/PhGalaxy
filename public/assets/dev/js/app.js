@@ -140,6 +140,10 @@
 	
 	var _GameHelper2 = _interopRequireDefault(_GameHelper);
 	
+	var _GameService = __webpack_require__(201);
+	
+	var _GameService2 = _interopRequireDefault(_GameService);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -149,9 +153,9 @@
 	    _classCallCheck(this, AppGame);
 	
 	    this.config = new _AppMainConfig2.default();
-	    this.appServices;
-	    this.game;
-	    this.gameServices;
+	    this.appServices = null;
+	    this.game = null;
+	    this.gameServices = null;
 	  }
 	
 	  _createClass(AppGame, [{
@@ -196,8 +200,8 @@
 	
 	      var instance = new clazz(this.appServices, this.game, this.gameServices);
 	
-	      if (!instance instanceof _GameManager2.default) {
-	        throw new TypeError('Invalid service instance, expected instanceof ' + _GameManager2.default.name);
+	      if (!(instance instanceof _GameService2.default)) {
+	        throw new TypeError('Invalid service instance, expected instanceof ' + _GameService2.default.name);
 	      }
 	
 	      return instance;
@@ -113264,7 +113268,7 @@
 	
 	        var _this = _possibleConstructorReturn(this, (GameObject.__proto__ || Object.getPrototypeOf(GameObject)).call(this, appServices, game, gameServices));
 	
-	        _this._object;
+	        _this._object = null;
 	        _this._spawnX = 0;
 	        _this._spawnY = 0;
 	        return _this;
@@ -113990,7 +113994,7 @@
 	        value: function addDamagers(object) {
 	
 	            if (_collection2.default.includes(this._gameDamagers, object)) {
-	                var objectName = typeof object['name'] === 'string' ? object.name : object;
+	                var objectName = typeof object.name === 'string' ? object.name : object;
 	                this.appServices.logger.error('Object already exists in the damagers pool: ' + objectName);
 	                console.log(object);
 	                return;
@@ -114032,13 +114036,13 @@
 	
 	                    _this2.game.physics.arcade.overlap(damagedManager.object, damagerManager.object, function (damaged, damager) {
 	
-	                        var damagerDamage = typeof damager['gameDamage'] === 'number' ? damager.gameDamage : 0;
+	                        var damagerDamage = typeof damager.gameDamage === 'number' ? damager.gameDamage : 0;
 	
 	                        //damaged.damage(damagerDamage); kill() autocall
 	                        damaged.health -= damagerDamage;
 	                        damagedManager.visualDamage(damagerDamage, damaged);
 	
-	                        var damagedDamage = typeof damaged['gameDamage'] === 'number' ? damaged.gameDamage : 0;
+	                        var damagedDamage = typeof damaged.gameDamage === 'number' ? damaged.gameDamage : 0;
 	                        damager.health -= damagedDamage;
 	                        damagerManager.visualDamage(damagerDamage, damager);
 	
@@ -114381,8 +114385,8 @@
 	
 	        var _this = _possibleConstructorReturn(this, (Gamer.__proto__ || Object.getPrototypeOf(Gamer)).call(this, appServices, game, gameServices));
 	
-	        _this._ship;
-	        _this._playerGroup;
+	        _this._ship = null;
+	        _this._playerGroup = null;
 	        _this.shared = true;
 	        return _this;
 	    }
@@ -114636,7 +114640,7 @@
 	            this.gameServices.userInterface.onFireMain.add(function () {
 	                if (!_this3._reactor) {
 	                    return;
-	                };
+	                }
 	
 	                _this3._weapons.forEach(function (weapon) {
 	                    if (_this3._reactor.isEnergyEnough(weapon.consume)) {
@@ -122312,7 +122316,7 @@
 	
 	        _this._energySources = [];
 	
-	        _this._ship;
+	        _this._ship = null;
 	        return _this;
 	    }
 	
@@ -123041,7 +123045,7 @@
 	
 	                var commandArray = commandString.match(/\S+/g);
 	
-	                if (!commandArray.length == 2) {
+	                if (commandArray.length !== 2) {
 	                    return;
 	                }
 	
@@ -123074,7 +123078,7 @@
 	
 	            var object = this._gameServices.worldStore.getObject(target);
 	            var x = this.game.input.mousePointer.x + this.game.camera.x;
-	            var y = this.game.input.mousePointer.y + this.game.camera.y;;
+	            var y = this.game.input.mousePointer.y + this.game.camera.y;
 	            this.appServices.logger.debug('Request spawn object: ' + target + ', x: ' + x + ', y: ' + y);
 	            object.spawn(x, y);
 	        }
@@ -123240,7 +123244,7 @@
 	
 	        _this.PORTAL_ACTIVE = 0;
 	        _this.PORTAL_WAIT = 1;
-	        _this.portalState;
+	        _this.portalState = null;
 	
 	        _this.portalHealth = 100;
 	        _this.spawnX = 400;
@@ -123351,7 +123355,7 @@
 	                return;
 	            }
 	
-	            if (!(this.portalState === this.PORTAL_ACTIVE)) {
+	            if (this.portalState !== this.PORTAL_ACTIVE) {
 	                this._object.forEach(function (portal) {
 	                    portal.angle += 0.5;
 	                });
@@ -124203,7 +124207,7 @@
 	            }
 	
 	            this._object.angle += 2.5;
-	            this._object.position.rotate(this.game.world.centerX, this.game.world.centerY, 0.5, true, 400);;
+	            this._object.position.rotate(this.game.world.centerX, this.game.world.centerY, 0.5, true, 400);
 	        }
 	    }]);
 	
@@ -124255,8 +124259,8 @@
 	
 	        var _this = _possibleConstructorReturn(this, (PlayerWithStarfieldMotion.__proto__ || Object.getPrototypeOf(PlayerWithStarfieldMotion)).call(this, appServices, game, gameServices, ruleData));
 	
-	        _this._ship;
-	        _this._starfield;
+	        _this._ship = null;
+	        _this._starfield = null;
 	        return _this;
 	    }
 	
@@ -124308,7 +124312,8 @@
 	        key: 'update',
 	        value: function update() {
 	
-	            return;
+	            //FIXME testing?
+	            // return;
 	
 	            var starfield = this._starfield;
 	            var player = this._player;
@@ -124376,7 +124381,7 @@
 	
 	        var _this = _possibleConstructorReturn(this, (StarWindWithCameraMotion.__proto__ || Object.getPrototypeOf(StarWindWithCameraMotion)).call(this, appServices, game, gameServices, ruleData));
 	
-	        _this._starwind;
+	        _this._starwind = null;
 	        return _this;
 	    }
 	
@@ -124468,7 +124473,7 @@
 	
 	        var _this = _possibleConstructorReturn(this, (PlayerMotion.__proto__ || Object.getPrototypeOf(PlayerMotion)).call(this, appServices, game, gameServices, ruleData));
 	
-	        _this._ship;
+	        _this._ship = null;
 	        return _this;
 	    }
 	
@@ -124604,7 +124609,7 @@
 	
 	                var health = null;
 	                var deadObjects = [];
-	                if (typeof gameObject['health'] === 'number') {
+	                if (typeof gameObject.health === 'number') {
 	
 	                    health = gameObject.health;
 	                } else if (gameObject.object && gameObject.object instanceof _phaser2.default.Sprite) {
@@ -124633,7 +124638,7 @@
 	                    _this2._checkPlayerDeath(gameObject, health);
 	                }
 	
-	                var objectName = typeof gameObject['key'] === 'string' ? gameObject.key : gameObject.constructor.name;
+	                var objectName = typeof gameObject.key === 'string' ? gameObject.key : gameObject.constructor.name;
 	
 	                _this2.appServices.logger.debug('Object dead: ' + objectName + ', id: ' + gameObjectID + ', health: ' + health);
 	            });
@@ -124693,8 +124698,8 @@
 	
 	        var _this = _possibleConstructorReturn(this, (UpdateGUI.__proto__ || Object.getPrototypeOf(UpdateGUI)).call(this, appServices, game, gameServices, ruleData));
 	
-	        _this._ship;
-	        _this._reactor;
+	        _this._ship = null;
+	        _this._reactor = null;
 	        return _this;
 	    }
 	
@@ -124812,8 +124817,8 @@
 	
 	        var _this = _possibleConstructorReturn(this, (ChangeWorld.__proto__ || Object.getPrototypeOf(ChangeWorld)).call(this, appServices, game, gameServices, ruleData));
 	
-	        _this._ship;
-	        _this._portal;
+	        _this._ship = null;
+	        _this._portal = null;
 	        _this.onChange = new _phaser2.default.Signal();
 	        _this.waitTeleport = false;
 	        return _this;

@@ -89,7 +89,7 @@ export default class SoundManager extends GameService {
             sound.onStop.removeAll();
             this.stopSound(sound);
             sound.destroy();
-        })
+        });
         this._sounds.clear(); 
         this.appServices.logger.debug("Clear sounds");
 

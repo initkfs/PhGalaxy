@@ -13,8 +13,8 @@ export default class Gamer extends GameObject {
     constructor(appServices, game, gameServices) {
         super(appServices, game, gameServices);
 
-        this._ship;
-        this._playerGroup;
+        this._ship = null;
+        this._playerGroup = null;
         this.shared = true;
     }
 
@@ -24,7 +24,7 @@ export default class Gamer extends GameObject {
 
         this._ship.weapons.forEach(weapon => {
             weapon.reactor = this._ship.reactor;
-        })
+        });
 
         this._ship.load();
     }
@@ -58,7 +58,7 @@ export default class Gamer extends GameObject {
         //HACK Player is shared
         this._ship.weapons.forEach(weapon => {
             weapon.shared = true;
-        })
+        });
 
         this._playerGroup.add(this._ship.object, true);
         this.game.camera.follow(this._ship.object);

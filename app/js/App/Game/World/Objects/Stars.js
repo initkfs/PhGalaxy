@@ -51,7 +51,7 @@ export default class Stars extends GameObject {
         this._stars.destroy();
         this._tweens.forEach(tween => {
             tween.stop();
-        })
+        });
         this._tweens = [];
     }
 

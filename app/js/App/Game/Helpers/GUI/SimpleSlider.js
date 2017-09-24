@@ -128,7 +128,7 @@ export default class SimpleSlider {
         const tween = this.game.add.tween(this.widthLife).to({ width: correctedSliderWidth }, 200, Phaser.Easing.Linear.None, true);
         tween.onComplete.add(() => {
             this.life.updateCrop();
-        })
+        });
 
     }
 }

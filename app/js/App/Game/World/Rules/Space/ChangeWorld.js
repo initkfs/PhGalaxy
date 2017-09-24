@@ -11,8 +11,8 @@ export default class ChangeWorld extends BaseRule {
     constructor(appServices, game, gameServices, ruleData) {
         super(appServices, game, gameServices, ruleData);
 
-        this._ship;
-        this._portal;
+        this._ship = null;
+        this._portal = null;
         this.onChange = new Phaser.Signal();
         this.waitTeleport = false;
     }
@@ -70,7 +70,7 @@ export default class ChangeWorld extends BaseRule {
             } else {
                 this._portal.portalWait();
             }
-        })
+        });
 
         this.game.physics.arcade.overlap(this._ship, this._portal.object, () => {
 

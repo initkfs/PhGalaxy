@@ -9,7 +9,7 @@ export default class GameObject extends GameComponent {
     constructor(appServices, game, gameServices) {
         super(appServices, game, gameServices);
 
-        this._object;
+        this._object = null;
         this._spawnX = 0;
         this._spawnY = 0;
     }

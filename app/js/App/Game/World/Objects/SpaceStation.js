@@ -41,7 +41,7 @@ export default class SpaceStation extends GameObject {
 
         emitter.makeParticles(this.ENERGY_ID);
 
-        emitter.angularDrag = 90
+        emitter.angularDrag = 90;
         emitter.setAlpha(0.3, 0.8);
         emitter.setScale(0.5, 1);
         emitter.minParticleSpeed.setTo(-300, -300);
@@ -61,6 +61,6 @@ export default class SpaceStation extends GameObject {
         }
 
         this._object.angle += 2.5;
-       this._object.position.rotate(this.game.world.centerX, this.game.world.centerY, 0.5, true, 400);;
+       this._object.position.rotate(this.game.world.centerX, this.game.world.centerY, 0.5, true, 400);
     }
 }

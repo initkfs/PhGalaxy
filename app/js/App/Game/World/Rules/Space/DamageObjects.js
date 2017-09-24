@@ -32,7 +32,7 @@ export default class DamageObjects extends BaseRule {
     addDamagers(object) {
 
         if (Collection.includes(this._gameDamagers, object)) {
-            let objectName = (typeof object['name'] === 'string') ? object.name : object
+            let objectName = (typeof object.name === 'string') ? object.name : object;
             this.appServices.logger.error(`Object already exists in the damagers pool: ${objectName}`);
             console.log(object);
             return;
@@ -45,7 +45,7 @@ export default class DamageObjects extends BaseRule {
             if (group.countLiving === 0) {
                 array.splice(index, 1);
             }
-        })
+        });
     }
 
     update() {
@@ -71,13 +71,13 @@ export default class DamageObjects extends BaseRule {
 
                 this.game.physics.arcade.overlap(damagedManager.object, damagerManager.object, (damaged, damager) => {
 
-                    let damagerDamage = (typeof damager['gameDamage'] === 'number') ? damager.gameDamage : 0;
+                    let damagerDamage = (typeof damager.gameDamage === 'number') ? damager.gameDamage : 0;
 
                     //damaged.damage(damagerDamage); kill() autocall
                     damaged.health -= damagerDamage;
                     damagedManager.visualDamage(damagerDamage, damaged);
 
-                    let damagedDamage = (typeof damaged['gameDamage'] === 'number') ? damaged.gameDamage : 0;
+                    let damagedDamage = (typeof damaged.gameDamage === 'number') ? damaged.gameDamage : 0;
                     damager.health -= damagedDamage;
                     damagerManager.visualDamage(damagerDamage, damager);
 
@@ -90,7 +90,7 @@ export default class DamageObjects extends BaseRule {
     _getShared(array) {
         let shared = array.filter(item => {
             return item.isShared;
-        })
+        });
         return shared;
     }
 

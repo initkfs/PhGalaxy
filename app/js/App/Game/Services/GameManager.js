@@ -199,7 +199,7 @@ export default class GameManager extends GameService {
     addInitRulesByClassName(...ruleClassNames) {
         ruleClassNames.forEach(ruleName => {
             this.addInitRuleByClassName(ruleName);
-        })
+        });
     }
 
     addInitRuleByClassName(ruleName, ruleData) {

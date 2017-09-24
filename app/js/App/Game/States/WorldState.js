@@ -113,7 +113,7 @@ export default class WorldState extends BaseState {
     let changeWorldRule = this.gameServices.worldStore.getRule(ChangeWorld.name);
     changeWorldRule.onChange.add(() => {
       this._changeWorld();
-    })
+    });
   }
 
   _setOnPlayerDeadHandler() {
@@ -126,7 +126,7 @@ export default class WorldState extends BaseState {
       this.gameServices.journal.append(dieMessage);
 
       this.onPlayerDead.dispatch();
-    })
+    });
   }
 
   _getGalaxyName() {

@@ -26,7 +26,7 @@ export default class DestroyObjects extends BaseRule {
 
             let health = null;
             let deadObjects = [];
-            if (typeof gameObject['health'] === 'number') {
+            if (typeof gameObject.health === 'number') {
 
                 health = gameObject.health;
 
@@ -58,7 +58,7 @@ export default class DestroyObjects extends BaseRule {
                 this._checkPlayerDeath(gameObject, health);
             }
 
-            const objectName = typeof gameObject['key'] === 'string' ? gameObject.key : gameObject.constructor.name;
+            const objectName = typeof gameObject.key === 'string' ? gameObject.key : gameObject.constructor.name;
        
             this.appServices.logger.debug(`Object dead: ${objectName}, id: ${gameObjectID}, health: ${health}`);
         });

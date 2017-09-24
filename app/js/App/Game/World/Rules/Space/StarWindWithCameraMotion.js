@@ -9,7 +9,7 @@ export default class StarWindWithCameraMotion extends BaseRule {
     constructor(appServices, game, gameServices, ruleData) {
         super(appServices, game, gameServices, ruleData);
 
-        this._starwind;
+        this._starwind = null;
     }
 
     run() {

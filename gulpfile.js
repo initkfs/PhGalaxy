@@ -147,7 +147,7 @@ gulp.task('browser-sync', () => {
     port: 8654,
     online: false,
     notify: false,
-    browser: "chromium-browser"
+    browser: "firefox"
   });
 });
 

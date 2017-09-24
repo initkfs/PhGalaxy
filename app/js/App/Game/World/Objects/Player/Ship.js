@@ -25,7 +25,7 @@ export default class Ship extends GameObject {
         this._weapons.forEach(weapon => {
             //bullets
             this.game.world.bringToTop(weapon.object);
-        })
+        });
     }
 
 
@@ -51,7 +51,7 @@ export default class Ship extends GameObject {
 
         this.weapons.forEach(weapon => {
             weapon.run();
-        })
+        });
 
         this._weapons.forEach((weapon) => {
             weapon.weapon.trackSprite(object, 0, 0, true);
@@ -62,19 +62,19 @@ export default class Ship extends GameObject {
 
             weapon.weapon.onFire.add(() => {
                 this.reactor.decrease(weapon.consume);
-            })
-        })
+            });
+        });
 
         this.gameServices.userInterface.onFireMain.add(() => {
             if (!this._reactor) {
                 return;
-            };
+            }
 
             this._weapons.forEach(weapon => {
                 if (this._reactor.isEnergyEnough(weapon.consume)) {
                     weapon.fire();
                 }
-            })
+            });
         });
 
         return object;
@@ -123,7 +123,7 @@ export default class Ship extends GameObject {
 
         this._weapons.forEach(weapon => {
             weapon.update();
-        })
+        });
 
         if (this.object && this.object.body) {
             let velocityPoint = this.object.body.velocity;

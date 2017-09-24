@@ -19,7 +19,7 @@ export default class Console extends GameObject {
 
             let commandArray = commandString.match(/\S+/g);
 
-            if (!commandArray.length == 2) {
+            if (commandArray.length !== 2) {
                 return;
             }
 
@@ -51,7 +51,7 @@ export default class Console extends GameObject {
 
         let object = this._gameServices.worldStore.getObject(target);
         const x = this.game.input.mousePointer.x + this.game.camera.x;
-        const y = this.game.input.mousePointer.y + this.game.camera.y;;
+        const y = this.game.input.mousePointer.y + this.game.camera.y;
         this.appServices.logger.debug(`Request spawn object: ${target}, x: ${x}, y: ${y}`);
         object.spawn(x,y);
     }

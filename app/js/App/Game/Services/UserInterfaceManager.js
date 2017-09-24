@@ -69,7 +69,7 @@ export default class UserInterfaceManager extends GameService {
     _initSlider(slider, prevNode, background, trackColor) {
         let sliderPosition = this._getNewPosition(prevNode);
         slider.sliderX = sliderPosition.x;
-        slider.sliderY = sliderPosition.y
+        slider.sliderY = sliderPosition.y;
         slider.sliderWidth = this.slidersWidth;
         slider.sliderHeight = this.sliderHeight;
         slider.sliderBackground = background;

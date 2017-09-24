@@ -10,7 +10,7 @@ export default class PlayerMotion extends BaseRule {
     constructor(appServices, game, gameServices, ruleData) {
         super(appServices, game, gameServices, ruleData);
 
-        this._ship;
+        this._ship = null;
     }
 
     run() {

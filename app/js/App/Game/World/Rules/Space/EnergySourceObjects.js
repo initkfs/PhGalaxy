@@ -12,7 +12,7 @@ export default class EnergySourceObjects extends BaseRule {
 
         this._energySources = [];
 
-        this._ship;
+        this._ship = null;
     }
 
     addEnergySource(object) {

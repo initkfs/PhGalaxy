@@ -10,8 +10,8 @@ export default class PlayerWithStarfieldMotion extends BaseRule {
     constructor(appServices, game, gameServices, ruleData) {
         super(appServices, game, gameServices, ruleData);
 
-        this._ship;
-        this._starfield;
+        this._ship = null;
+        this._starfield = null;
     }
 
     run() {
@@ -58,7 +58,8 @@ export default class PlayerWithStarfieldMotion extends BaseRule {
 
     update() {
 
-        return;
+        //FIXME testing?
+       // return;
 
         let starfield = this._starfield;
         let player = this._player;

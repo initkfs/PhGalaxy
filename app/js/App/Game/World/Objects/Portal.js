@@ -14,7 +14,7 @@ export default class Portal extends GameObject {
 
         this.PORTAL_ACTIVE = 0;
         this.PORTAL_WAIT = 1;
-        this.portalState;
+        this.portalState = null;
 
         this.portalHealth = 100;
         this.spawnX = 400;
@@ -34,7 +34,7 @@ export default class Portal extends GameObject {
 
         this._object.forEach(portal => {
             this._setActive(portal);
-        })
+        });
 
         this.portalState = this.PORTAL_ACTIVE = 1;
     }
@@ -46,7 +46,7 @@ export default class Portal extends GameObject {
 
         this._object.forEach(portal => {
             this._setWait(portal);
-        })
+        });
 
         this.PORTAL_ACTIVE = 0;
     }
@@ -108,10 +108,10 @@ export default class Portal extends GameObject {
         }
 
 
-        if (!(this.portalState === this.PORTAL_ACTIVE)) {
+        if (this.portalState !== this.PORTAL_ACTIVE) {
             this._object.forEach(portal => {
                 portal.angle += 0.5;
-            })
+            });
         }
 
 
