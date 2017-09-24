@@ -25,3 +25,14 @@
 ![]( ./project/screenshots/screen4.png "screen 4")
 
 ![]( ./project/screenshots/screen5.png "screen 5")
+
+Ассеты:
+http://soundimage.org
+https://opengameart.org/content/space-ship-construction-kit
+https://opengameart.org/content/set-faction10-spacestations
+https://opengameart.org/content/set-faction9-spacestations
+https://opengameart.org/content/sci-fi-effects
+https://opengameart.org/content/2d-explosion-animations-frame-by-frame
+https://opengameart.org/content/2d-explosion-animations-2-frame-by-frame
+https://opengameart.org/content/20-planet-sprites
+и другие
