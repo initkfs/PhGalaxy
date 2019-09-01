@@ -1,8 +1,8 @@
 ##### Galaxy, Phaser2 practice.
 
-####DON'T USE THIS - experimental repository
+#### DON'T USE THIS - experimental repository
 
-####Repository not maintained.
+#### Repository not maintained.
 
 Тестовый проект, заморожен в ожидании Phaser 3.
 
